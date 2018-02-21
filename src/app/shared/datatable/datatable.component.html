@@ -1,0 +1,48 @@
+<div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+  <div class="row" *ngIf="false">
+    <div class="col-sm-12">
+      <div id="example1_filter" class="dataTables_filter">
+        <label>Pesquisar:<input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"></label>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+        <thead>
+          <tr role="row">
+            <th *ngFor="let column of columns"
+                 [ngClass]="{'sorting_desc': hasSorting_desc(column), 'sorting_asc': hasSorting_asc(column), 'sorting': hasSorting(column)}"
+                 (click)="onTitleClick(column)" [style.width.px]="column.width">
+              {{column.title}}
+            </th>
+            <th *ngIf="this.exibirAcoes">
+              Ações
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let record of records">
+            <td *ngFor="let column of columns">
+              <div *ngIf="isDateFormat(column)">
+                {{this.GetPropertyValue(record, column.property) | date: 'dd/MM/yyyy'}}
+              </div>
+              <div *ngIf="isCurrencyFormat(column)" class="pull-right">
+                {{this.GetPropertyValue(record, column.property)| currency:'BRL':true}}
+              </div>
+              <div *ngIf="isNumberFormat(column)" class="pull-right">
+                {{this.GetPropertyValue(record, column.property)| number}}
+              </div>
+              <div *ngIf="isNdaFormat(column)">
+                {{this.GetPropertyValue(record, column.property)}}
+              </div>
+            </td>
+            <td class="text-center" *ngIf="this.exibirAcoes">
+              <a><i class="fa fa-edit fa-2x"  [routerLink]="'editar/'+GetPropertyValue(record, 'id')"></i></a> |
+              <a><i class="fa fa-trash-o fa-2x" (click)="Exluir(record)"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

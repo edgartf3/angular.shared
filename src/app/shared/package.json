@@ -1,0 +1,22 @@
+{
+  "name": "edgartf3.angular.shared",
+  "version": "1.0.3",
+  "description": "Componentes úteis para trabalhar com angular 4 ou 5",
+  "main": "shared.module.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edgartf3/angular.shared.git"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "author": "Edgar Torres de Freitas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edgartf3/angular.shared/issues"
+  },
+  "homepage": "https://github.com/edgartf3/angular.shared#readme"
+}

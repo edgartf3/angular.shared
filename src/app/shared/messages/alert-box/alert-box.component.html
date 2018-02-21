@@ -1,0 +1,12 @@
+<div *ngIf="visible" class="alertbox">
+  <div class="alert {{getCSSAlertType()}}" [@box-visibility]="boxVisibility">
+    <button type="button" class="close" aria-hidden="true" (click)="close()">&times;</button>
+    <h4><i class="icon fa" [ngClass]="{'fa-ban': alertType===1,
+                                     'fa-info': alertType === 2,
+                                     'fa-warning': alertType === 3,
+                                     'fa-check': alertType === 4}"></i> {{title}}</h4>
+    {{message}}
+  </div>
+</div>
+
+
