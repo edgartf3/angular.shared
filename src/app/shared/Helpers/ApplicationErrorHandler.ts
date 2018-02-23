@@ -22,7 +22,7 @@ export class ApplicationErrorHandler extends  ErrorHandler {
 
   handleError(errorResponse: HttpErrorResponse | any) {
     console.log('HandleError');
-    console.log('ErrorResponse -> ' + JSON.stringify(errorResponse));
+    console.log(errorResponse);
     if (errorResponse instanceof HttpErrorResponse) {
       console.log('HandleError passo 01');
       const error = errorResponse.error;
@@ -57,6 +57,10 @@ export class ApplicationErrorHandler extends  ErrorHandler {
         this.notificationService.AlertBoxError(msg);
       });
 
+    }else {
+      this.zone.run(() => {
+        this.notificationService.AlertBoxError('Ops! Ocorreu um erro inesperado, verifique o console do brower para maiores detalhes');
+      });
     }
     console.log('HandleError Fim');
     super.handleError(errorResponse);

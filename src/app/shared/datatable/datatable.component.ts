@@ -15,6 +15,7 @@ export class DatatableComponent implements OnInit {
   @Input() exibirAcoes: boolean;
   constructor(private injector: Injector) {
     this.exibirAcoes = true;
+    this.deleteFunction = null;
   }
 
   ngOnInit() {
