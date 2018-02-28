@@ -6,6 +6,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/timer';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/switchMap';
+import {isNullOrUndefined} from "util";
 
 @Component({
   selector: 'app-snackbar',
@@ -39,6 +40,19 @@ export class SnackbarComponent implements OnInit {
         this.snackVisibility = 'visible';
       }).switchMap(message => Observable.timer(3000))
       .subscribe(timer => this.snackVisibility = 'hidden');
+  }
+
+  GetBody(): string {
+    if (!isNullOrUndefined(this.message)) {
+      let str = this.message;
+      let i = 0;
+      while ((i = str.indexOf('\n', i)) !== -1) {
+        str = str.replace('\n', '<br>');
+      }
+      return str;
+    } else {
+      return '';
+    }
   }
 
 }

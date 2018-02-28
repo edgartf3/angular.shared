@@ -1,3 +1,4 @@
 <div class="snackbar" [@snack-visibility]="snackVisibility">
-  {{message}}
+  <div [innerHTML]="this.GetBody()" style="margin-left: 5px; margin-right: 5px">
+  </div>
 </div>

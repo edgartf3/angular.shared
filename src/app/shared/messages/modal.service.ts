@@ -37,6 +37,18 @@ export class ModalService {
     msg.confirmCaption = 'OK';
     this.notify(msg);
   }
+
+  MessageBoxInfo(message: string) {
+    const msg = new ModalMessage();
+    msg.body = message;
+    msg.title = 'Inormação';
+    msg.icon = 1;
+    msg.cancelVisible = false;
+    msg.confirmVisible = true;
+    msg.confirmCaption = 'OK';
+    this.notify(msg);
+  }
+
   MessageBoxSimNao(message: string, simFunciton: any, naoFunction: any) {
     const msg = new ModalMessage();
     msg.body = message;

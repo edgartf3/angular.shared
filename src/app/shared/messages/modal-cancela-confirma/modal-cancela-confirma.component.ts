@@ -73,6 +73,18 @@ export class ModalCancelaConfirmaComponent implements OnInit {
     this.body = '';
     this.title = '';
   }
+  GetBody(): string {
+    if (!isNullOrUndefined(this.body)) {
+      let str = this.body;
+      let i = 0;
+      while ((i = str.indexOf('\n', i)) !== -1) {
+        str = str.replace('\n', '<br>');
+      }
+      return str;
+    } else {
+      return '';
+    }
+  }
 
 
 }

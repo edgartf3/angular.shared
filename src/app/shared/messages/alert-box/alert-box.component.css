@@ -5,3 +5,27 @@
   padding-left: 15px;
   padding-right: 15px;
 }
+
+.alertbox_melhor {
+  padding: 15px;
+  width: 100%;
+  color: #fff;
+  position: fixed;
+  z-index: 2;
+  top: 10px;
+}
+
+.alertbox2{
+  padding: 15px;
+  width: 100%;
+  color: #fff;
+  border-radius: 2px;
+  position: fixed;
+  z-index: 99999999999;
+  top: 30px;
+}
+
+.sombra {
+  border-radius: 4px;
+  box-shadow: 0 5px 8px rgba(0,0,0,0.16), 0 5px 8px rgba(0,0,0,0.23);
+}

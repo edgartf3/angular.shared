@@ -3,6 +3,7 @@ import { trigger, state, style, transition, animate} from '@angular/animations';
 import {NotificationService} from '../notification.service';
 import {Observable} from 'rxjs/Observable';
 import {delay} from "rxjs/operators";
+import {isNullOrUndefined} from "util";
 
 @Component({
   selector: 'app-alert-box',
@@ -35,15 +36,6 @@ export class AlertBoxComponent implements OnInit {
   constructor(private notificationService: NotificationService) { }
 
   ngOnInit() {
-    /*
-    this.notificationService.alertboxNotifier.subscribe(message => {
-      console.log('Notificado');
-      this.message = message.message;
-      this.title = message.title;
-      this.alertType = message.alertType;
-      this.visible = true;
-    });
-     */
     this.notificationService.alertboxNotifier
       .do(message => {
         this.message = message.message;
@@ -69,5 +61,18 @@ export class AlertBoxComponent implements OnInit {
   }
   close() {
     this.visible = false;
+  }
+
+  GetBody(): string {
+    if (!isNullOrUndefined(this.message)) {
+      let str = this.message;
+      let i = 0;
+      while ((i = str.indexOf('\n', i)) !== -1) {
+        str = str.replace('\n', '<br>');
+      }
+      return str;
+    } else {
+      return '';
+    }
   }
 }

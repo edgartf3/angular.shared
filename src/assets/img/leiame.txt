@@ -1,0 +1,2 @@
+Copie estas imagens para seu projeto na pasta
+/assets/img

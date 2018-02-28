@@ -1,8 +1,6 @@
-
+<app-alert-box></app-alert-box>
 <!-- Site wrapper -->
 <div class="wrapper">
-  <app-modal-cancela-confirma></app-modal-cancela-confirma>
-  <app-alert-box></app-alert-box>
 
   <header class="main-header">
     <!-- Logo -->
@@ -362,6 +360,9 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+    <app-modal-cancela-confirma></app-modal-cancela-confirma>
+
+
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -381,7 +382,7 @@
       <!-- Default box -->
       <div class="box">
         <div class="box-header with-border">
-          <h3 class="box-title">Title</h3>
+          <h3 class="box-title">Mensagens</h3>
 
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
@@ -391,9 +392,29 @@
               <i class="fa fa-times"></i></button>
           </div>
         </div>
-        <input type="text" #texto value="Menssagem aqui">
+
         <div class="box-body">
-          <button (click)="Notifty(texto.value)">Teste menssagem</button>
+          <textarea class="form-control" [(ngModel)]="this.msg"></textarea>
+          <br>
+          <div>
+            <h4>Modais</h4>
+            <button (click)="this.SimNao()">Mensagem Sim/Não</button>
+            <button (click)="this.Erro()">Erro</button>
+            <button (click)="this.Info()">Informação</button>
+          </div>
+          <br>
+          <div>
+            <h4>Toast</h4>
+            <button (click)="this.Toast()">Tipo Toast</button>
+          </div>
+          <br>
+          <div>
+            <h4>Alerta tipo box no topo</h4>
+            <button (click)="this.AlertBoxErro()">Erro</button>
+            <button (click)="this.AlertBoxInfo()">Informação</button>
+            <button (click)="this.AlertBoxCheck()">Sucesso</button>
+          </div>
+
         </div>
         <!-- /.box-body -->
         <div class="box-footer">

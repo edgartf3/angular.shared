@@ -4,17 +4,18 @@
       <div class="modal-header">
         <button id="btnCloseModal" type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">{{title}}</h4>
+        <h4 class="modal-title"><b>{{title}}</b></h4>
       </div>
       <div class="modal-body">
-        <p>
-            <span>
-              <img src="../../../../assets/img/info.png" *ngIf="icon==1">
-              <img src="../../../../assets/img/question.png" *ngIf="icon==2">
-              <img src="../../../../assets/img/erro.png" *ngIf="icon==3">
-            </span>
-            {{body}}
-        </p>
+        <div class="row">
+          <span class="col-md-2">
+            <img src="../../../../assets/img/info.png" *ngIf="icon==1">
+            <img src="../../../../assets/img/question.png" *ngIf="icon==2">
+            <img src="../../../../assets/img/erro.png" *ngIf="icon==3">
+          </span>
+          <div [innerHTML]="this.GetBody()" style="margin-left: 5px; margin-right: 5px">
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal" (click)="Cancelar()" *ngIf="cancelVisible">{{cancelCaption}}</button>
