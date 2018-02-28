@@ -1,6 +1,6 @@
 {
   "name": "edgartf3.angular.shared",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Componentes úteis para trabalhar com angular 4 ou 5",
   "main": "shared.module.ts",
   "scripts": {
