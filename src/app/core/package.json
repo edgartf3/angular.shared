@@ -1,6 +1,6 @@
 {
   "name": "edgartf3.angular.crud",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Interfaces e componentes basicos para fazer telas de cadastro simples (CRUD)",
   "main": "CRUD.module.ts",
   "scripts": {
@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/edgartf3/angular.crud/issues"
   },
-  "homepage": "https://github.com/edgartf3/angular.crud#readme"
+  "homepage": "https://github.com/edgartf3/angular.crud#readme",
+  "dependencies": {
+    "edgartf3.angular.shared": "^1.0.6"
+  }
 }

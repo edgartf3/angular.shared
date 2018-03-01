@@ -1,6 +1,5 @@
 import {OnInit} from '@angular/core';
 import {Acao, TipoDeParametro} from './model/Acao.model';
-import {GrupoProduto} from '../Models/GrupoProduto.model';
 import {ActivatedRoute} from '@angular/router';
 import {ICrudService} from './interfaces/ICrudService';
 import {NotificationService} from 'edgartf3.angular.shared/messages/notification.service';
@@ -88,27 +87,27 @@ export abstract class BaseCRUDComponent<T extends IBaseModel, F> implements OnIn
   expandirFiltro() {
     this.filtroExpandido = !this.filtroExpandido;
   }
-  ExecutarAcao(acao: Acao, grupo: GrupoProduto) {
+  ExecutarAcao(acao: Acao, entity: T) {
     if (isNullOrUndefined(acao)) {
       return;
     }
-    if (isNullOrUndefined(grupo)) {
+    if (isNullOrUndefined(entity)) {
       this.notificationService.AlertBoxError('Informe um item para executar a ação "' + acao.caption + '"');
       return;
     }
     this.funcaoParaExecutar = acao.function;
     switch (acao.tipoDeParametro) {
       case TipoDeParametro.tpUm:
-        this.funcaoParaExecutar(grupo);
+        this.funcaoParaExecutar(entity);
         break;
       case TipoDeParametro.tpNenhum:
         this.funcaoParaExecutar();
         break;
       case TipoDeParametro.tpArray:
-        this.funcaoParaExecutar([grupo]);
+        this.funcaoParaExecutar([entity]);
         break;
       default:
-        this.funcaoParaExecutar([grupo]);
+        this.funcaoParaExecutar([entity]);
         break;
     }
   }
