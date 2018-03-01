@@ -1,8 +1,8 @@
 import {Component, Injector, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
-import {NotificationService} from 'edgartf3.angular.shared/messages/notification.service';
-import {RespostaPadrao} from 'edgartf3.angular.shared/Models/RespostaPadrao';
+import {NotificationService} from '../messages/notification.service';
+import {RespostaPadrao} from '../Models/RespostaPadrao';
 import {IBaseModel} from './interfaces/IBaseModel';
 import {ICrudService} from './interfaces/ICrudService';
 import {isNullOrUndefined} from 'util';

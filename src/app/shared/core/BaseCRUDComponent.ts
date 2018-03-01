@@ -2,7 +2,7 @@ import {OnInit} from '@angular/core';
 import {Acao, TipoDeParametro} from './model/Acao.model';
 import {ActivatedRoute} from '@angular/router';
 import {ICrudService} from './interfaces/ICrudService';
-import {NotificationService} from 'edgartf3.angular.shared/messages/notification.service';
+import {NotificationService} from '../messages/notification.service';
 import {IBaseModel} from './interfaces/IBaseModel';
 import {isNullOrUndefined} from 'util';
 

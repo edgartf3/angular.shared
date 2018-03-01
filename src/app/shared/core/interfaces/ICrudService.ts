@@ -1,6 +1,6 @@
 import {Observable} from 'rxjs/Observable';
 import {IBaseModel} from './IBaseModel';
-import {RespostaPadrao} from 'edgartf3.angular.shared/Models/RespostaPadrao';
+import {RespostaPadrao} from '../../Models/RespostaPadrao';
 import {FormGroup} from '@angular/forms';
 
 export interface ICrudService<T extends IBaseModel, F> {
