@@ -1,6 +1,7 @@
-import {EventEmitter} from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {ModalMessage} from './ModalMessage';
 
+@Injectable()
 export class ModalService {
   public notifier = new EventEmitter<ModalMessage>();
 

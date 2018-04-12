@@ -8,10 +8,10 @@ export class BuscaCepService {
   constructor(private http: HttpClient, private notificationService: NotificationService) { }
   Consultar(cep: string): Observable<any> {
     if (cep.length === 8) {
-      return this.http.get(`https://viacep.com.br/ws/${cep}/json/`)
-        .do(resp => { },
-          erro => { this.notificationService.notify('CEP inválido'); } );
-    }else {
+      return this.http.get(`https://viacep.com.br/ws/${cep}/json/`);
+        // .do(resp => { },
+        //  erro => { this.notificationService.notify('CEP inválido'); } );
+    } else {
       this.notificationService.notify('CEP inválido');
     }
   }

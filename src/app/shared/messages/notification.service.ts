@@ -1,6 +1,7 @@
-import {EventEmitter} from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {AlertBoxMessage} from './AlertBoxMessage';
 
+@Injectable()
 export class NotificationService {
   notifier = new EventEmitter<string>();
   alertboxNotifier = new EventEmitter<AlertBoxMessage>();
