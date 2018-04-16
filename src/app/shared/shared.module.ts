@@ -15,6 +15,8 @@ import {CheckBoxComponent} from './check-box/check-box.component';
 import {DatatableComponent} from './datatable/datatable.component';
 import {RouterModule} from '@angular/router';
 import {InputComponent} from './input/input.component';
+import { ApplicationErrorHandler } from './Helpers/ApplicationErrorHandler';
+import { AuthInterceptor } from './Helpers/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,7 @@ export class SharedModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: SharedModule,
-      providers: [NotificationService, ModalService, BuscaCepService]
+      providers: [NotificationService, ModalService, BuscaCepService, ApplicationErrorHandler, AuthInterceptor]
     };
   }
 }
