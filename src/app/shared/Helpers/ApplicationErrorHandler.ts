@@ -32,7 +32,7 @@ export class ApplicationErrorHandler extends  ErrorHandler {
           msg = error.mensagem;
         }
       }
-      console.log('HandleError passo 04 '+error);
+      console.log('HandleError passo 04 ' + error);
       if (isNullOrUndefined(msg)) {
         switch (errorResponse.status) {
           case 401:
@@ -45,7 +45,7 @@ export class ApplicationErrorHandler extends  ErrorHandler {
             msg = 'Página não localizada';
             break;
           case 500:
-            msg = (error || 'Aconteceu um erro inesperado no servidor, segue os detalhes '+errorResponse.message);
+            msg = (error || 'Aconteceu um erro inesperado no servidor, segue os detalhes ' + errorResponse.message);
             break;
           default:
             msg = errorResponse.message;
@@ -57,7 +57,7 @@ export class ApplicationErrorHandler extends  ErrorHandler {
         this.notificationService.AlertBoxError(msg);
       });
 
-    }else {
+    } else {
       this.zone.run(() => {
         this.notificationService.AlertBoxError('Ops! Ocorreu um erro inesperado, verifique o console do brower para maiores detalhes');
       });

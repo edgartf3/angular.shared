@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {NotificationService} from './shared/messages/notification.service';
-import {ModalService} from "./shared/messages/modal.service";
+import {ModalService} from './shared/messages/modal.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ export class AppComponent {
   title = 'app';
   msg = 'Digite sua mensagem aqui!';
   constructor(private notificationService: NotificationService,
+              private http: HttpClient,
               private modalService: ModalService) { }
 
   Erro() {
@@ -35,6 +37,12 @@ export class AppComponent {
   }
   AlertBoxCheck() {
     this.notificationService.AlertBoxCheck(this.msg);
+  }
+  ChamarBackEndErrado() {
+    console.log('chamando backend falso');
+    this.http.get<any>('http://localhost:5000/api/teste').subscribe((resp) => {
+      console.log(resp);
+    });
   }
 
 }
