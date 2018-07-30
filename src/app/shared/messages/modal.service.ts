@@ -13,7 +13,8 @@ export class ModalService {
     this.notifier.emit(message);
   }
 
-  MessageBox(message: string, title: string, cancelFunction: any, cancelCaption: string, cancelVisible: boolean, confirmFunction: any, confirmCaption: string, confirmVisible: boolean, icon?) {
+  MessageBox(message: string, title: string, cancelFunction: any, cancelCaption: string,
+  cancelVisible: boolean, confirmFunction: any, confirmCaption: string, confirmVisible: boolean, icon?) {
     const msg = new ModalMessage();
     msg.cancelClick = cancelFunction;
     msg.confirmClick = confirmFunction;

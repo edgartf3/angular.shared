@@ -420,6 +420,13 @@
             <button (click)="this.ChamarBackEndErrado()">Chamar BackEnd Errado</button>
           </div>
 
+          <div>
+            <h4>Bucar CEP</h4>
+            <input #cep type="text" id="edtCep">
+            <button (click)="this.BuscaCep(cep.value)">Buscar CEP</button>
+          </div>
+
+
         </div>
         <!-- /.box-body -->
         <div class="box-footer">

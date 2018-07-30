@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {NotificationService} from './shared/messages/notification.service';
 import {ModalService} from './shared/messages/modal.service';
 import { HttpClient } from '@angular/common/http';
+import {BuscaCepService} from './shared/BuscaCep/BuscaCep.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,8 @@ export class AppComponent {
   msg = 'Digite sua mensagem aqui!';
   constructor(private notificationService: NotificationService,
               private http: HttpClient,
-              private modalService: ModalService) { }
+              private modalService: ModalService,
+              private buscaCep: BuscaCepService) { }
 
   Erro() {
     this.modalService.MessageBoxErro(this.msg);
@@ -43,6 +45,9 @@ export class AppComponent {
     this.http.get<any>('http://localhost:5000/api/teste').subscribe((resp) => {
       console.log(resp);
     });
+  }
+  BuscaCep(cep: string) {
+    this.buscaCep.Consultar(cep).subscribe((resp) => {console.log(resp); }, (erro) => {console.log(erro); });
   }
 
 }
